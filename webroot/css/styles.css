@@ -13,6 +13,8 @@
     --mainColor:#e354f3;
     --secondaryColor:#17b6f9;
     --otherColor:#5d6c83;
+    --colorTabla:#8cb6f5;
+    --azulTransparente:#d3e1f7;
 }
 html{
    height: 100%;
@@ -22,7 +24,7 @@ header{
   background-color: var(--headerColor);
   margin: 0;
   padding: 2rem;
-  color:var(--mainColor)
+  color:blue;
 }
 body{
   background-color: var(--secondColor);
@@ -47,10 +49,10 @@ h1 {
 
 .proyecto{
   width: 70%;
-  border: 2px solid var(--mainColor);
+  border: 2px solid var(--colorTabla);
   text-align: center;
   margin: 15px;
-  background-color: var(--mainColor);
+  background-color: var(--colorTabla);
   font-weight: 500;
   padding: 5px;
   border-radius: 10px;
@@ -69,6 +71,6 @@ h1 {
 }
 .footer a{
   font-size: 15px;
-  color: var(--mainColor);
+  color: blue;
 }
 
