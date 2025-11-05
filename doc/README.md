@@ -359,6 +359,65 @@ sudo systemctl restart php8.3-fpm
 
 #### 1.1.4 MySQL
 #### 1.1.5 XDebug
+# Xdebug en PHP
+
+**Xdebug** es una extensión (módulo) de PHP diseñada para ayudar en la **depuración (debugging)** y **profiling (análisis de rendimiento)** del código PHP.  
+En otras palabras, es una herramienta que permite ver qué hace tu programa internamente mientras se ejecuta, paso a paso, y medir su rendimiento.
+
+---
+
+## 🧩 Funciones principales
+
+### 🔍 Depurador paso a paso (debugging)
+- Permite pausar la ejecución del script en cualquier punto (*breakpoint*).  
+- Puede inspeccionar variables, pilas de llamadas (*call stack*) y valores de expresiones.  
+- Se puede usar junto al IDE (VSCode, NetBeans, PhpStorm, etc.).  
+- Comunicación del IDE mediante el protocolo **DBGp** (puerto **9003**).
+
+---
+
+## ⚙️ Instalación y configuración
+
+### 1️⃣ Verifica si Xdebug está instalado
+
+```bash
+sudo php -v | grep xdebug
+```
+
+### Si no aparece, instalálo:
+```bash
+sudo apt install php8.3-xdebug
+```
+
+Luego se edita el fichero de configuración:
+
+```bash
+sudo nano /etc/php/8.3/fpm/conf.d/20-xdebug.ini
+```
+
+Y añade
+
+´´´bash
+xdebug.mode=develop,debug
+xdebug.start_with_request=yes
+xdebug.client_host=127.0.0.1
+xdebug.client_port=9003
+xdebug.log=/tmp/xdebug.log
+xdebug.log_level=7
+xdebug.idekey="netbeans-xdebug"
+xdebug.discover_client_host=1
+´´´
+
+Guarda y reinicia el servidor
+
+```bash
+sudo systemctl restart apache 2
+# o si usas php-fpm
+sudo systemctl restart php8.3-fpm
+´´´
+
+
+
 #### 1.1.6 DNS
 #### 1.1.7 SFTP
 #### 1.1.8 Apache Tomcat
